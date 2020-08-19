@@ -1,0 +1,41 @@
+Open Command Prompt
+Navigate to the Project Location
+
+Scenario-1:
+If you wish to run a specific test  which is under Test1 folder under TestSuite1.robot
+
+robot -t MyFirstTest test1\TestSuite1.robot
+robot -t MySecondTest test1\TestSuite1.robot
+
+Scenario-2:
+If you wish to set a tag against a specific test under Test1 folder under TestSuite1.robot
+
+robot -t MyFirstTest --settag=regression1 test1\TestSuite1.robot
+robot -t MyThirdTest --settag=regression2 test1\TestSuite1.robot
+
+
+Scenario-3:
+If you wish to run the TestCases under Test1 folder under TestSuite1.robot which applies only 
+Smoke Tag and not with any other tags (Here Smoke tag is defined globally for all the test cases)
+
+robot --include smoke test1\TestSuite1.robot
+robot -i smoke test1\TestSuite1.robot
+
+robot -i sanity test1\TestSuite1.robot
+
+Scenario-4:
+If you wish to use Regular expressions to execute tests using command prompt:
+
+robot -i s* test1\TestSuite1.robot
+robot -i r* test1\TestSuite1.robot
+
+Scenario-5:
+
+If you wish to exclude tests from executing:
+robot --exclude smoke test1\TestSuite1.robot
+robot -e smoke test1\TestSuite1.robot
+
+Scneario-6:
+If you wish to include and exclude tests from executing:
+
+robot -i smoke -e sanity test1\TestSuite1.robot
